@@ -24,5 +24,26 @@
 
 <!-- Aquí vamos a ir pegando cada ejercicio en orden -->
 
+<h2>Ejercicio 1 — Variables válidas e inválidas</h2>
+<div class="card">
+  <?php
+  // Variables a analizar:
+  // $_myvar → válida (inicia con underscore, correcto).
+  // $_7var → válida (underscore inicial, luego número permitido).
+  // myvar → inválida (le falta el $).
+  // $myvar → válida.
+  // $var7 → válida.
+  // $_element1 → válida.
+  // $house*5 → inválida (no se permite * en el nombre).
+
+  $validas = ['$_myvar','$_7var','$myvar','$var7','$_element1'];
+  $invalidas = ['myvar','$house*5'];
+
+  echo "Variables válidas: " . implode(', ', $validas) . "<br />";
+  echo "Variables inválidas: " . implode(', ', $invalidas);
+  ?>
+</div>
+
+
 </body>
 </html>
