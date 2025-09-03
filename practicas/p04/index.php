@@ -44,6 +44,32 @@
   ?>
 </div>
 
+<h2>Ejercicio 2 — Referencias &amp; contenido</h2>
+<div class="card">
+  <?php
+  $a = "ManejadorSQL";
+  $b = 'MySQL';
+  $c = &$a;
+
+  echo "<strong>Bloque 1</strong><br />";
+  echo "a = $a<br />b = $b<br />c = $c<br />";
+  echo "<hr />";
+
+  $a = "PHP server";
+  $b = &$a;
+
+  echo "<strong>Bloque 2</strong><br />";
+  echo "a = $a<br />b = $b<br />c = $c<br />";
+
+  echo "<hr />";
+  echo "<div class='hint'>Al usar <code>&amp;</code>, varias variables apuntan al mismo valor en memoria.<br />"
+     . "Por eso, cuando cambiamos <code>\$a</code>, también cambian <code>\$b</code> y <code>\$c</code>.</div>";
+
+  // Limpiamos variables para evitar conflictos después
+  unset($a, $b, $c);
+  ?>
+</div>
+
 
 </body>
 </html>
