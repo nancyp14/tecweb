@@ -101,6 +101,19 @@
   Al cambiar <code>$z[0] = "MySQL"</code>, también cambia <code>$a</code>.</div>
 </div>
 
+<h2>Ejercicio 4 — Lectura con $GLOBALS</h2>
+<div class="card">
+  <?php
+  echo "a = " . ($GLOBALS['a'] ?? 'N/D') . "<br />";
+  echo "b = " . ($GLOBALS['b'] ?? 'N/D') . "<br />";
+  echo "c = " . ($GLOBALS['c'] ?? 'N/D') . "<br />";
+  echo "z = <pre>"; print_r($GLOBALS['z'] ?? []); echo "</pre>";
+
+  // Limpiamos variables después de usarlas
+  unset($a, $b, $c, $z);
+  ?>
+</div>
+
 
 </body>
 </html>
