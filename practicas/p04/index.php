@@ -114,6 +114,18 @@
   ?>
 </div>
 
+<h2>Ejercicio 5</h2>
+<?php
+$a = "7 personas";
+$b = (integer) $a;
+$a = "9E3"; // notación científica
+$c = (double) $a;
+
+echo "a = $a<br>";
+echo "b = $b<br>";
+echo "c = $c<br>";
+?>
+
 
 </body>
 </html>
