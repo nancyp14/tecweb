@@ -126,6 +126,22 @@ echo "b = $b<br>";
 echo "c = $c<br>";
 ?>
 
+<h2>Ejercicio 6</h2>
+<?php
+$a = "0";
+$b = "TRUE";
+$c = FALSE;
+$d = ($a OR $b);
+$e = ($a AND $c);
+$f = ($a XOR $b);
+
+var_dump($a, $b, $c, $d, $e, $f);
+
+// Mostrar booleanos en texto con var_export (o intval, strval)
+echo "<br>c como texto: " . var_export($c, true);
+echo "<br>e como texto: " . var_export($e, true);
+?>
+
 
 </body>
 </html>
