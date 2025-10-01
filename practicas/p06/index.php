@@ -37,5 +37,17 @@ include("src/funciones.php");
     echo "<p>Total números: " . ($res['iteraciones']*3) . "</p>";
     ?>
 
+        <h1>Ejercicio 3</h1>
+    <?php
+    if (isset($_GET['divisor'])) {
+        $d = $_GET['divisor'];
+        echo "<p>Con while: " . encontrarMultiploWhile($d) . "</p>";
+        echo "<p>Con do-while: " . encontrarMultiploDoWhile($d) . "</p>";
+    } else {
+        echo "<p>Pasa un divisor en la URL. Ej: ?divisor=13</p>";
+    }
+    ?>
+
+
 </body>
 </html>

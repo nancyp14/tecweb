@@ -15,4 +15,20 @@ function generarSecuencia() {
     } while (!($fila[0] % 2 != 0 && $fila[1] % 2 == 0 && $fila[2] % 2 != 0));
     return ["matriz"=>$matriz,"iteraciones"=>$iteraciones];
 }
+
+// Ejercicio 3: encontrar múltiplo de un número dado
+function encontrarMultiploWhile($n) {
+    while (true) {
+        $num = rand(1,1000);
+        if ($num % $n == 0) return $num;
+    }
+}
+
+function encontrarMultiploDoWhile($n) {
+    do {
+        $num = rand(1,1000);
+    } while ($num % $n != 0);
+    return $num;
+}
+
 ?>
