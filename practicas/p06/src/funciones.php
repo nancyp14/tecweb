@@ -31,4 +31,14 @@ function encontrarMultiploDoWhile($n) {
     return $num;
 }
 
+// Ejercicio 4: arreglo ASCII
+function arregloAscii() {
+    $arr = [];
+    for ($i=97; $i<=122; $i++) {
+        $arr[$i] = chr($i);
+    }
+    return $arr;
+}
+
+
 ?>

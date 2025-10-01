@@ -48,6 +48,17 @@ include("src/funciones.php");
     }
     ?>
 
+        <h1>Ejercicio 4</h1>
+    <?php
+    $arr = arregloAscii();
+    echo "<table border='1'>";
+    foreach ($arr as $key => $val) {
+        echo "<tr><td>$key</td><td>$val</td></tr>";
+    }
+    echo "</table>";
+    ?>
+
+
 
 </body>
 </html>
