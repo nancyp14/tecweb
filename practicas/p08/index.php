@@ -5,7 +5,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Práctica 4 — Manejo de variables en PHP</title>
-  <style>
+  <style type="text/css">
     body { font-family: Arial, sans-serif; line-height:1.5; max-width: 900px; margin: 20px auto; padding: 0 16px; }
     header { border-bottom: 1px solid #ccc; margin-bottom: 20px; padding-bottom: 10px; }
     h1 { margin: 0; font-size: 22px; }
