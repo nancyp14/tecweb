@@ -17,10 +17,10 @@
   </style>
 </head>
 <body>
-<header>
+<div class= "header">
   <h1>Práctica 4 — Manejo de variables en PHP</h1>
   <div class="hint">Ruta: <code><?php echo $_SERVER['REQUEST_URI'] ?? ''; ?></code></div>
-</header>
+</div>
 
 <!-- Aquí vamos a ir pegando cada ejercicio en orden -->
 
