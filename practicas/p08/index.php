@@ -138,11 +138,13 @@ $d = ($a OR $b);
 $e = ($a AND $c);
 $f = ($a XOR $b);
 
+echo "<div>";
 var_dump($a, $b, $c, $d, $e, $f);
 
 // Mostrar booleanos en texto con var_export (o intval, strval)
-echo "<br>c como texto: " . var_export($c, true);
-echo "<br>e como texto: " . var_export($e, true);
+echo "<br />c como texto: " . var_export($c, true);
+echo "<br />e como texto: " . var_export($e, true);
+echo "</div>";
 ?>
 
 <h2>Ejercicio 7</h2>
