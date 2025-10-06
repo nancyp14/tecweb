@@ -74,6 +74,8 @@
 <div class="card">
   <?php
   echo "<pre>";
+
+  ob_start();
   $a = "PHP5";
   var_dump($a);
 
@@ -95,11 +97,13 @@
   $z[0] = "MySQL";     // cambia también $a porque $z[0] referencia a $a
   var_dump($z);
   var_dump($a);
+
+  $dump = ob_get_clean();
+  echo htmlspecialchars($dump);
+
   echo "</pre>";
   ?>
-  <div class="hint">Nota: <code>$z[0]</code> es referencia a <code>$a</code>.  
-  Al cambiar <code>$z[0] = "MySQL"</code>, también cambia <code>$a</code>.</div>
-</div>
+
 
 <h2>Ejercicio 4 — Lectura con $GLOBALS</h2>
 <div class="card">
