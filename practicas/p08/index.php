@@ -149,9 +149,12 @@ echo "</div>";
 
 <h2>Ejercicio 7</h2>
 <?php
-echo "Versión de Apache y PHP: " . $_SERVER['SERVER_SOFTWARE'] . "<br>";
-echo "Sistema operativo del servidor: " . PHP_OS . "<br>";
-echo "Idioma del navegador: " . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "<br>";
+echo "<div>";
+echo "Versión de Apache y PHP: " . htmlspecialchars($_SERVER['SERVER_SOFTWARE']) . "<br />";
+echo "Sistema operativo del servidor: " . PHP_OS . "<br />";
+echo "Idioma del navegador: " . htmlspecialchars($_SERVER['HTTP_ACCEPT_LANGUAGE']) . "<br />";
+echo "</div>";
+
 ?>
 
 
