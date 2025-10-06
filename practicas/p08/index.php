@@ -125,9 +125,8 @@ $b = (integer) $a;
 $a = "9E3"; // notación científica
 $c = (double) $a;
 
-echo "a = $a<br>";
-echo "b = $b<br>";
-echo "c = $c<br>";
+echo "<div>a = $a<br />b = $b<br />c = $c<br /></div>";
+
 ?>
 
 <h2>Ejercicio 6</h2>
