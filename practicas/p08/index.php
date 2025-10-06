@@ -103,6 +103,7 @@
 
   echo "</pre>";
   ?>
+  </div>
 
 
 <h2>Ejercicio 4 — Lectura con $GLOBALS</h2>
