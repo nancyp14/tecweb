@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Práctica 4 — Manejo de variables en PHP</title>
+  <style type="text/css">
+    body { font-family: Arial, sans-serif; line-height:1.5; max-width: 900px; margin: 20px auto; padding: 0 16px; }
+    header { border-bottom: 1px solid #ccc; margin-bottom: 20px; padding-bottom: 10px; }
+    h1 { margin: 0; font-size: 22px; }
+    h2 { margin-top: 30px; border-left: 4px solid #444; padding-left: 8px; }
+    .card { background: #f9f9f9; border: 1px solid #ddd; border-radius: 6px; padding: 12px; margin: 12px 0; }
+    pre { background: #222; color: #eee; padding: 10px; border-radius: 6px; overflow-x: auto; }
+    code { background: #eee; padding: 2px 4px; border-radius: 4px; }
+    .hint { color: #666; font-size: 13px; }
+  </style>
+</head>
+<body>
+<div class= "header">
+  <h1>Práctica 4 — Manejo de variables en PHP</h1>
+  <div class="hint">Ruta: <code>/tecweb/practicas/p08/index.php</code></div>
+</div>
+
+<!-- Aquí vamos a ir pegando cada ejercicio en orden -->
+
+<h2>Ejercicio 1 — Variables válidas e inválidas</h2>
+<div class="card">
+  Variables válidas: $_myvar, $_7var, $myvar, $var7, $_element1<br />Variables inválidas: myvar, $house*5</div>
+
+<h2>Ejercicio 2 — Referencias &amp; contenido</h2>
+<div class="card">
+  <strong>Bloque 1</strong><br />a = ManejadorSQL<br />b = MySQL<br />c = ManejadorSQL<br /><hr /><strong>Bloque 2</strong><br />a = PHP server<br />b = PHP server<br />c = PHP server<br /><hr /><div class='hint'>Al usar <code>&amp;</code>, varias variables apuntan al mismo valor en memoria.<br />Por eso, cuando cambiamos <code>$a</code>, también cambian <code>$b</code> y <code>$c</code>.</div></div>
+
+<h2>Ejercicio 3 — Evolución de tipos/valores</h2>
+<div class="card">
+  <pre>string(4) &quot;PHP5&quot;
+array(1) {
+  [0]=&gt;
+  &amp;string(4) &quot;PHP5&quot;
+}
+string(17) &quot;5a version de PHP&quot;
+&lt;br /&gt;
+&lt;b&gt;Warning&lt;/b&gt;:  A non-numeric value encountered in &lt;b&gt;C:\xampp\htdocs\tecweb\practicas\p08\index.php&lt;/b&gt; on line &lt;b&gt;88&lt;/b&gt;&lt;br /&gt;
+int(50)
+string(21) &quot;PHP55a version de PHP&quot;
+&lt;br /&gt;
+&lt;b&gt;Warning&lt;/b&gt;:  A non-numeric value encountered in &lt;b&gt;C:\xampp\htdocs\tecweb\practicas\p08\index.php&lt;/b&gt; on line &lt;b&gt;94&lt;/b&gt;&lt;br /&gt;
+int(250)
+array(1) {
+  [0]=&gt;
+  &amp;string(5) &quot;MySQL&quot;
+}
+string(5) &quot;MySQL&quot;
+</pre>  </div>
+
+
+<h2>Ejercicio 4 — Lectura con $GLOBALS</h2>
+<div class="card">
+  a = MySQL<br />b = 250<br />c = 50<br />z = <pre>Array
+(
+    [0] => MySQL
+)
+</pre></div>
+
+<h2>Ejercicio 5</h2>
+<div>a = 9E3<br />b = 7<br />c = 9000<br /></div>
+<h2>Ejercicio 6</h2>
+<div>string(1) "0"
+string(4) "TRUE"
+bool(false)
+bool(true)
+bool(false)
+bool(true)
+<br />c como texto: false<br />e como texto: false</div>
+<h2>Ejercicio 7</h2>
+<div>Versión de Apache y PHP: Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12<br />Sistema operativo del servidor: WINNT<br /><br />
+<b>Warning</b>:  Undefined array key "HTTP_ACCEPT_LANGUAGE" in <b>C:\xampp\htdocs\tecweb\practicas\p08\index.php</b> on line <b>156</b><br />
+Idioma del navegador: <br /></div>
+<p>
+  <a href="https://validator.w3.org/check?uri=referer">
+    <img src="https://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+  </a>
+</p>
+  
+
+</body>
+</html>
