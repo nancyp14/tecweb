@@ -16,6 +16,15 @@ if ($link->connect_errno) {
     die('Falló la conexión: '.$link->connect_error.'<br/>');
 }
 
+// Validación de datos
+if (empty($nombre) || empty($marca) || empty($modelo) || empty($precio) || empty($unidades)) {
+    die('<h3> Error: Faltan campos obligatorios (nombre, marca, modelo, precio o unidades).</h3>');
+}
+
+if (!is_numeric($precio) || !is_numeric($unidades) || $precio <= 0 || $unidades < 0) {
+    die('<h3> Error: Los valores de precio y unidades deben ser numéricos y positivos.</h3>');
+}
+
 // Verificar si el producto ya existe (mismo nombre, marca y modelo)
 $check_sql = "SELECT * FROM productos WHERE nombre = '$nombre' AND marca = '$marca' AND modelo = '$modelo'";
 $result = $link->query($check_sql);
