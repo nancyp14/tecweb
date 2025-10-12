@@ -54,6 +54,12 @@
         return false;
       }
 
+      // g) Imagen: opcional, pero si está vacía usar imagen por defecto
+      if (imagen === "") {
+        imagen = "cat.png";
+        document.forms["registro"]["imagen"].value = imagen;
+      }
+
       mensaje.style.color = "green";
       mensaje.textContent = "Validación correcta. Enviando formulario...";
       return true;
