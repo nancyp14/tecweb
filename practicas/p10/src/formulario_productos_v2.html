@@ -42,6 +42,12 @@
         return false;
       }
 
+      // e) Detalles: opcional, pero si se usa ≤ 250 caracteres
+      if (detalles.length > 250) {
+        mensaje.textContent = "Los detalles deben tener 250 caracteres o menos.";
+        return false;
+      }
+
       mensaje.style.color = "green";
       mensaje.textContent = "Validación correcta. Enviando formulario...";
       return true;
