@@ -33,8 +33,8 @@ if ($result->num_rows > 0) {
     echo 'El producto ya existe (nombre, marca y modelo duplicados).';
 } else {
     // Insertar nuevo producto
-    $sql = "INSERT INTO productos (id, nombre, marca, modelo, precio, detalles, unidades, imagen)
-            VALUES (null, '$nombre', '$marca', '$modelo', $precio, '$detalles', $unidades, '$imagen')";
+    $sql = "INSERT INTO productos (id, nombre, marca, modelo, precio, detalles, unidades, imagen, eliminado)
+            VALUES (null, '$nombre', '$marca', '$modelo', $precio, '$detalles', $unidades, '$imagen', 0)";
     
     if ($link->query($sql)) {
         echo '✅ Producto insertado con ID: '.$link->insert_id;
