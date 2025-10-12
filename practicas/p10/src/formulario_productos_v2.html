@@ -29,6 +29,13 @@
         return false;
       }
 
+      // c) Modelo: requerido, alfanumérico y ≤ 25 caracteres
+      const regexModelo = /^[a-zA-Z0-9]+$/;
+      if (modelo === "" || !regexModelo.test(modelo) || modelo.length > 25) {
+        mensaje.textContent = "El modelo debe ser alfanumérico y tener 25 caracteres o menos.";
+        return false;
+      }
+
       mensaje.style.color = "green";
       mensaje.textContent = "Validación correcta. Enviando formulario...";
       return true;
