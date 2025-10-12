@@ -36,6 +36,12 @@
         return false;
       }
 
+      // d) Precio: requerido y > 99.99
+      if (isNaN(precio) || precio <= 99.99) {
+        mensaje.textContent = "El precio debe ser mayor a 99.99.";
+        return false;
+      }
+
       mensaje.style.color = "green";
       mensaje.textContent = "Validación correcta. Enviando formulario...";
       return true;
