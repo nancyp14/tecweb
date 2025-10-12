@@ -48,6 +48,12 @@
         return false;
       }
 
+      // f) Unidades: requerido y ≥ 0
+      if (isNaN(unidades) || unidades < 0) {
+        mensaje.textContent = "Las unidades deben ser un número mayor o igual a 0.";
+        return false;
+      }
+
       mensaje.style.color = "green";
       mensaje.textContent = "Validación correcta. Enviando formulario...";
       return true;
