@@ -23,6 +23,12 @@
         return false;
       }
 
+       // b) Marca: requerida y debe seleccionarse
+      if (marca === "") {
+        mensaje.textContent = "Debes seleccionar una marca.";
+        return false;
+      }
+
       mensaje.style.color = "green";
       mensaje.textContent = "Validación correcta. Enviando formulario...";
       return true;
