@@ -43,6 +43,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
                     <th>Unidades</th>
                     <th>Detalles</th>
                     <th>Imagen</th>
+                    <th>Modificar</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,6 +57,12 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
                     <td><?= $row['unidades'] ?></td>
                     <td><?= $row['detalles'] ?></td>
                     <td><img src="<?= $row['imagen'] ?>" alt="<?= $row['nombre'] ?>" width="80"/></td>
+                    <td>
+                        <form action="formulario_productos_v2.php" method="get">
+                            <input type="hidden" name="id" value="<?= $row['id'] ?>" />
+                            <input type="submit" value="Modificar" />
+                        </form>
+                    </td>
                 </tr>
             <?php endwhile; ?>
             </tbody>
