@@ -1,113 +1,68 @@
 <?php
-header("Content-Type: text/html; charset=UTF-8");
+// Conexión a la base de datos
+$link = new mysqli("localhost", "root", "roqR.05acm1", "marketzone");
+
+// Verificar conexión
+if ($link->connect_errno) {
+    die("Error de conexión: " . $link->connect_error);
+}
+
+// Obtener ID desde GET
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+// Si hay un ID válido, buscar el producto
+if ($id > 0) {
+    $sql = "SELECT * FROM productos WHERE id = $id";
+    $result = $link->query($sql);
+
+    if ($result->num_rows == 1) {
+        $producto = $result->fetch_assoc();
+    } else {
+        die("<h3>Producto no encontrado.</h3>");
+    }
+} else {
+    die("<h3>No se especificó un producto.</h3>");
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de Productos</title>
-  <script>
-    function validarFormulario() {
-      const nombre = document.forms["registro"]["nombre"].value.trim();
-      const marca = document.forms["registro"]["marca"].value;
-      const modelo = document.forms["registro"]["modelo"].value.trim();
-      const precio = parseFloat(document.forms["registro"]["precio"].value);
-      const detalles = document.forms["registro"]["detalles"].value.trim();
-      const unidades = parseInt(document.forms["registro"]["unidades"].value);
-      let imagen = document.forms["registro"]["imagen"].value.trim();
-      const mensaje = document.getElementById("mensaje");
-
-      mensaje.textContent = ""; // limpia el mensaje previo
-
-      // a) Nombre: requerido y ≤ 100 caracteres
-      if (nombre === "" || nombre.length > 100) {
-        mensaje.textContent = "El nombre es requerido y debe tener 100 caracteres o menos.";
-        return false;
-      }
-
-       // b) Marca: requerida y debe seleccionarse
-      if (marca === "") {
-        mensaje.textContent = "Debes seleccionar una marca.";
-        return false;
-      }
-
-      // c) Modelo: requerido, alfanumérico y ≤ 25 caracteres
-      const regexModelo = /^[a-zA-Z0-9]+$/;
-      if (modelo === "" || !regexModelo.test(modelo) || modelo.length > 25) {
-        mensaje.textContent = "El modelo debe ser alfanumérico y tener 25 caracteres o menos.";
-        return false;
-      }
-
-      // d) Precio: requerido y > 99.99
-      if (isNaN(precio) || precio <= 99.99) {
-        mensaje.textContent = "El precio debe ser mayor a 99.99.";
-        return false;
-      }
-
-      // e) Detalles: opcional, pero si se usa ≤ 250 caracteres
-      if (detalles.length > 250) {
-        mensaje.textContent = "Los detalles deben tener 250 caracteres o menos.";
-        return false;
-      }
-
-      // f) Unidades: requerido y ≥ 0
-      if (isNaN(unidades) || unidades < 0) {
-        mensaje.textContent = "Las unidades deben ser un número mayor o igual a 0.";
-        return false;
-      }
-
-      // g) Imagen: opcional, pero si está vacía usar imagen por defecto
-      if (imagen === "") {
-        imagen = "cat.png";
-        document.forms["registro"]["imagen"].value = imagen;
-      }
-
-      mensaje.style.color = "green";
-      mensaje.textContent = "Validación correcta. Enviando formulario...";
-      return true;
-    }
-  </script>
+  <title>Editar Producto</title>
 </head>
 <body>
-  <h2>Registro de Productos</h2>
+  <h2>Editar Producto</h2>
 
-  <form name="registro"
-        action="http://localhost/tecweb/practicas/p09/src/set_producto_v2.php"
-        method="post"
-        onsubmit="return validarFormulario()">
+  <form action="update_producto.php" method="post">
+    <input type="hidden" name="id" value="<?= $producto['id'] ?>">
 
     <label>Nombre:</label>
-    <input type="text" name="nombre" required><br><br>
+    <input type="text" name="nombre" value="<?= htmlspecialchars($producto['nombre']) ?>" required><br><br>
 
     <label>Marca:</label>
-    <select name="marca" required>
-      <option value="">--Selecciona una marca--</option>
-      <option value="ADATA">ADATA</option>
-      <option value="HP">HP</option>
-      <option value="Kingston">Kingston</option>
-      <option value="Logitech">Logitech</option>
-      <option value="Samsung">Samsung</option>
-    </select><br><br>
+    <input type="text" name="marca" value="<?= htmlspecialchars($producto['marca']) ?>" required><br><br>
 
     <label>Modelo:</label>
-    <input type="text" name="modelo" required><br><br>
+    <input type="text" name="modelo" value="<?= htmlspecialchars($producto['modelo']) ?>" required><br><br>
 
     <label>Precio:</label>
-    <input type="number" step="0.01" name="precio" required><br><br>
+    <input type="number" step="0.01" name="precio" value="<?= $producto['precio'] ?>" required><br><br>
 
     <label>Unidades:</label>
-    <input type="number" name="unidades" required><br><br>
+    <input type="number" name="unidades" value="<?= $producto['unidades'] ?>" required><br><br>
 
     <label>Detalles:</label><br>
-    <textarea name="detalles" rows="4" cols="40"></textarea><br><br>
+    <textarea name="detalles" rows="4" cols="40"><?= htmlspecialchars($producto['detalles']) ?></textarea><br><br>
 
     <label>Imagen (URL o ruta relativa):</label>
-    <input type="text" name="imagen"><br><br>
+    <input type="text" name="imagen" value="<?= htmlspecialchars($producto['imagen']) ?>"><br><br>
 
-    <input type="submit" value="Registrar Producto">
+    <input type="submit" value="Actualizar Producto">
   </form>
-
-  <p id="mensaje" style="font-weight:bold; color:red;"></p>
 </body>
 </html>
+
+<?php
+$link->close();
+?>
