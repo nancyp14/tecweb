@@ -171,28 +171,31 @@ $(document).ready(function(){
         }
     });
 
-    $(document).on('click', '.product-item', (e) => {
-        const element = $(this)[0].activeElement.parentElement.parentElement;
-        const id = $(element).attr('productId');
-        $.post('./backend/product-single.php', {id}, (response) => {
-            // SE CONVIERTE A OBJETO EL JSON OBTENIDO
-            let product = JSON.parse(response);
-            // SE INSERTAN LOS DATOS ESPECIALES EN LOS CAMPOS CORRESPONDIENTES
-            $('#name').val(product.nombre);
-            // EL ID SE INSERTA EN UN CAMPO OCULTO PARA USARLO DESPUÉS PARA LA ACTUALIZACIÓN
-            $('#productId').val(product.id);
-            // SE ELIMINA nombre, eliminado E id PARA PODER MOSTRAR EL JSON EN EL <textarea>
-            delete(product.nombre);
-            delete(product.eliminado);
-            delete(product.id);
-            // SE CONVIERTE EL OBJETO JSON EN STRING
-            let JsonString = JSON.stringify(product,null,2);
-            // SE MUESTRA STRING EN EL <textarea>
-            $('#description').val(JsonString);
-            
-            // SE PONE LA BANDERA DE EDICIÓN EN true
-            edit = true;
-        });
-        e.preventDefault();
-    });    
+    $(document).on('click', '.product-item', function (e) {
+    e.preventDefault();
+
+    //Obtenemos el <tr> más cercano y su atributo productId
+    const tr = $(this).closest('tr');
+    const id = tr.attr('productId');
+
+    $.post('./backend/product-single.php', { id: id }, function (response) {
+        let product = JSON.parse(response);
+
+        //Cargar los datos en el formulario
+        $('#name').val(product.nombre);
+        $('#productId').val(product.id);
+
+        //Quitar campos que no se deben mostrar
+        delete product.nombre;
+        delete product.eliminado;
+        delete product.id;
+
+        //Mostrar los datos del producto en formato JSON
+        let JsonString = JSON.stringify(product, null, 2);
+        $('#description').val(JsonString);
+
+        //Activar modo edición
+        edit = true;
+    });
 });
+});    
