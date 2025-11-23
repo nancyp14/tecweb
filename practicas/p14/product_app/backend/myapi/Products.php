@@ -14,7 +14,7 @@ class Products extends DataBase {
 
     // LISTAR
     public function list() {
-        $sql = "SELECT * FROM productos ORDER BY id DESC";
+        $sql = "SELECT * FROM productos WHERE eliminado = 0 ORDER BY id";
         $result = $this->conexion->query($sql);
 
         $this->response = [];
@@ -77,7 +77,7 @@ class Products extends DataBase {
 
     // ELIMINAR
     public function delete($id) {
-        $sql = "DELETE FROM productos WHERE id=$id";
+        $sql = "UPDATE productos SET eliminado = 1 WHERE id = $id";
         $this->conexion->query($sql);
         $this->response = ["status" => "Producto eliminado"];
     }
