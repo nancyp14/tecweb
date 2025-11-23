@@ -35,10 +35,10 @@ $(document).ready(function(){
         barra.removeClass('text-success text-danger');
 
         if (valido) {
-            barra.text("✅ Correcto");
+            barra.text("Correcto");
             barra.addClass('text-success');
         } else {
-            barra.text("❌ " + mensaje);
+            barra.text(" " + mensaje);
             barra.addClass('text-danger');
         }
     }
