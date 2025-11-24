@@ -1,8 +1,8 @@
 <?php
-use TECWEB\MYAPI\Products;
-require_once __DIR__ . "/myapi/Products.php";
 
-$prodObj = new Products("marketzone");
-$prodObj->add($_POST);
+require_once __DIR__ . "/../../vendor/autoload.php";
 
-echo $prodObj->getData();
+use TECWEB\MYAPI\Create\Create;
+
+$api = new Create("product_app");
+echo $api->add($_POST);
