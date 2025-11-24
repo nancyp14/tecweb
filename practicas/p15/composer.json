@@ -1,0 +1,12 @@
+{
+    "name": "tecweb/p15",
+    "description": "Práctica 15 - Gestión de dependencias propias",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nancy"
+        }
+    ],
+    "require": {}
+}
