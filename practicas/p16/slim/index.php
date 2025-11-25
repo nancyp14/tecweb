@@ -39,9 +39,9 @@ $app->post('/pruebapost', function (Request $request, Response $response, $args)
 $app->get('/testjson', function (Request $request, Response $response, $args) {
 
     $datos = [
-        "nombre" => "Juan",
+        "nombre" => "Nancy",
         "edad" => 20,
-        "materia" => "Tecnologías Web"
+        "materia" => "Tecnologias Web"
     ];
 
     $json = json_encode($datos);
