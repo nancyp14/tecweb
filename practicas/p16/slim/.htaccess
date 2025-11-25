@@ -1,3 +1,7 @@
 RewriteEngine On
-RewriteCond %{ENV:REDIRECT_STATUS} !200
-RewriteRule ^(.*)$ index.php [QSA,L]
+
+# En Slim v4 ES OBLIGATORIO agregar estas líneas
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^ index.php [QSA,L]
